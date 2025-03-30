@@ -1,5 +1,5 @@
 ## Model Metrics
 
-Accuracy = 0.98, F1 Score = 0.97.
+Accuracy = 0.95, F1 Score = 0.91.
 ## Confusion Matrix Plot
 ![Confusion Matrix](./Results/model_results.png)
