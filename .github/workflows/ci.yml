@@ -1,11 +1,11 @@
 name: Continuous Integration
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
   workflow_dispatch:
-  
+
 permissions: write-all
 jobs:
   build:
@@ -23,3 +23,11 @@ jobs:
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: make eval
+      - name: Update Results Branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USER_NAME: ${{ secrets.USER_NAME }}
+          USER_EMAIL: ${{ secrets.USER_EMAIL }}
+        run: |
+          # Pass the secrets as Make variables
+          make update-branch USER_NAME="$USER_NAME" USER_EMAIL="$USER_EMAIL"
